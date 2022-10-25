@@ -1,18 +1,26 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { CountriesStore } from '../../stores';
+import { createCountryLink } from '../../utils';
 
-const CountriesList: React.FC = observer(() => {
+export type CountryListProps = {
+  list: any[];
+};
+
+const CountryList: React.FC<CountryListProps> = observer(({ list }) => {
   return (
-    <div>
-      <button onClick={() => CountriesStore.pop()}>Pop</button>
+    <div style={{ marginTop: '10px' }}>
       <ul>
-        {CountriesStore.countries.map(item => (
-          <li>{JSON.stringify(item)}</li>
+        {list.slice(0, 10).map(item => (
+          <li key={item.code}>
+            <a href={createCountryLink(item)}>
+              {item.emoji} {item.name}
+            </a>
+          </li>
         ))}
       </ul>
     </div>
   );
 });
 
-export default CountriesList;
+export default CountryList;

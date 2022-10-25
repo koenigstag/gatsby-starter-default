@@ -9,6 +9,10 @@ class CountriesModel {
     makeAutoObservable(this);
   }
 
+  set(list: any[] = []) {
+    this.countries = list;
+  }
+
   add(data) {
     this.countries.push(data);
   }
