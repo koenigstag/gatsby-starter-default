@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
+import Seo from '../components/seo';
 
 const CountryPage = (props) => {
   console.log(props.data?.CountryAPI?.country);
@@ -8,6 +9,7 @@ const CountryPage = (props) => {
   const data = props.data?.CountryAPI?.country;
 
   return (<Layout>
+    <Seo title={data.name} />
     <div>
       <h1>Info about {data.emoji} {data.name}</h1>
       <ul style={{ listStyle: 'none' }}>
