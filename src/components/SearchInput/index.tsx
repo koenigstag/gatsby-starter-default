@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { observer } from 'mobx-react';
-import { countriesStore } from '../../stores';
 import useInput from '../../hooks/useInput';
 import { createCountryLink } from '../../utils';
+import { Link } from 'gatsby';
 
 export type SearchProps = {
   placeholder?: string;
@@ -64,8 +64,8 @@ const SearchInput: React.FC<SearchProps> = observer(
             {filteredCountries.length
               ? filteredCountries.slice(0, 10).map(item => (
                   <div key={item.code}>
-                    <a
-                      href={createCountryLink(item)}
+                    <Link
+                      to={createCountryLink(item)}
                       style={{
                         display: 'block',
                         textDecoration: 'none',
@@ -73,7 +73,7 @@ const SearchInput: React.FC<SearchProps> = observer(
                       }}
                     >
                       {item.emoji} {item.name}
-                    </a>
+                    </Link>
                   </div>
                 ))
               : 'Nothing found'}

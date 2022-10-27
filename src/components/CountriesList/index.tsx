@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { createCountryLink } from '../../utils';
@@ -13,9 +13,9 @@ const CountryList: React.FC<CountryListProps> = observer(({ list }) => {
       <ul>
         {list.slice(0, 10).map(item => (
           <li key={item.code}>
-            <a href={createCountryLink(item)}>
+            <Link to={createCountryLink(item)}>
               {item.emoji} {item.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
