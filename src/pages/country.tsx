@@ -41,24 +41,6 @@ const CountryPage: FC<PageProps<CountryPageProps>> = ({ location }) => {
   return (
     <Layout>
       <Seo title={data.name} />
-      <div style={{ marginBottom: '30px' }}>
-        {window.history.length && (
-          <button
-            style={{
-              border: '1px solid black',
-              background: 'white',
-              borderRadius: '5px',
-              padding: '5px 15px',
-              cursor: 'pointer',
-            }}
-            onClick={() => {
-              window.history.back();
-            }}
-          >
-            {'<'} Back
-          </button>
-        )}
-      </div>
       <div>
         <h1>
           Info about {data.emoji} {data.name}
