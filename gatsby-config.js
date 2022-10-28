@@ -41,9 +41,10 @@ module.exports = {
         url: "https://countries.trevorblades.com",
       },
     },
-    {
-      resolve: 'gatsby-plugin-apollo',
-      uri: 'https://localhost:8000/__graphql',
-    },
+    // ApolloProvider does not work correctly
+    // {
+    //   resolve: 'gatsby-plugin-apollo',
+    //   uri: 'https://localhost:8000/__graphql',
+    // },
   ],
 }
